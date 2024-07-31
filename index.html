@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat Widget | Extensions Demo</title>
+    <style>
+      body {
+        background-color: #f9f9f9;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="flat-chat"></div>
+    <div class="c-gMpNkY">Contenido aquí</div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.voiceflow.com/widget/bundle.mjs"></script>
+    <script type="module">
+      import {
+        VideoExtension,
+        TimerExtension,
+        FormExtension,
+        MapExtension,
+        FileUploadExtension,
+        KBUploadExtension,
+        DateExtension,
+        ConfettiExtension,
+        FeedbackExtension,
+      } from 'https://413xkur4y4m1.github.io/pagefunctions/extensions.js';
+
+      (function (d, t) {
+        var v = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: '66a1410da1f31cc7c3337bb3' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'development',
+            user: {
+              name: 'Demo User',
+            },
+            render: {
+              mode: 'embedded',
+              target: document.body,
+            },
+            autostart: false,
+            assistant: {
+              title: 'Legal Copilot',
+              stylesheet: 'style.css',
+              extensions: [
+                VideoExtension,
+                TimerExtension,
+                FormExtension,
+                MapExtension,
+                FileUploadExtension,
+                KBUploadExtension,
+                DateExtension,
+                FeedbackExtension,
+              ],
+            },
+          });
+        };
+        v.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
+        v.type = 'text/javascript';
+        s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+  </body>
+</html>
